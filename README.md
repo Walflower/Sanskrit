@@ -1,11 +1,10 @@
-# Sanskrit
-
+# Project Title
+Sanskrit
 
 ## Overview
 
-Yogic Sanskirpt is to help yoga
+Sanskrit is an application to help yogis learn the sanskirt names of their favourite poses. This is meant to go alongside yoga teaches on history, philosophy and technique.
 
-Good* Coffee is a place for third-wave coffee enthusiasts to find and keep track of the best cafés.
 
 ### Problem
 
