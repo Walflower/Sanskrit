@@ -3,33 +3,33 @@ Sanskrit
 
 ## Overview
 
-Sanskrit is an application to help yogis learn the sanskirt names of their favourite poses. This is meant to go alongside yoga teaches on history, philosophy and technique.
+Sanskrit is an application to help yogis learn the sanskrit names of their favorite poses. This is meant to go alongside yoga teaches on history, philosophy and technique.
 
 
 ### Problem
 
-Third-wave coffee is coffee made with high-quality beans typically sourced from individual farms and roasted more lightly to bring out their distinctive flavors. There is no certain way to know the quality of a café's coffee before purchasing and having your first sip. When looking for a third-wave café in a given area, people generally have to go through the time-consuming process of doing a Google search for coffee near a location then manually analyze images, reviews, etc. for each café before deciding if it might be a café serving a high-quality cup of third-wave coffee.
+During my 200 hour yoga teacher training I found no tools to help me learning this whole other language of sanskrit. The only options were dry textbooks, which weren't engaging.
+
+
 
 ### User Profile
 
-- Coffee drinkers:
-    - looking for a café close to their current location
-    - looking for a café close to a given location for the future
-    - that want to keep track of the cafés they've tried
+Yoga Enthusiast
+    - currently or interest in yoga trainings
+    - wanting to deepen their knowledge of yoga poses in the sanskrit language
+
 
 ### Features
 
-- As a user, I want to be able to find the closest café close to my current location
-- As a user, I want to be able to find the closest café close to any given location
-- As a user, I want to be able to find the highest-rated café within a certain distance from any given location
+- As a user, I want to be to see the sanskrit & english name, image, and description of a pose.
+- As a user, I want to be able to find tips and tricks of a pose.
+- As a user, I want a to be able to test my knowledge in a fun and engaging way.
 
-- As a user, I want to be able to create an account to manage my visited cafés
-- As a user, I want to be able to login to my account to manage my visited cafés
+- As a user, I want to be able to create an account to track my progress 
+- As a user, I want to be able to login to my account to see previous quiz scores.
 
-- As a logged in user, I want to be able to rate a visited café out of 5 coffee cups
-- As a logged in user, I want to be able to update a rating of a café out of 5 coffee cups
-- As a logged in user, I want to be able to see my visited cafés
-- As a logged in user, I want to be able to filter my visited cafés by location
+- As a logged in user, I want to be able to change my difficulty level 
+
 
 ## Implementation
 
@@ -37,60 +37,60 @@ Third-wave coffee is coffee made with high-quality beans typically sourced from 
 
 - React
 - TypeScript
-- MySQL
 - Express
 - Client libraries: 
     - react
     - react-router
     - axios
 - Server libraries:
-    - knex
     - express
     - bcrypt for password hashing
 
 ### APIs
 
-- No external APIs will be used for the first sprint
+- No external APIs will be used
 
 ### Sitemap
 
-- Home page
-- List cafés
-- View + Rate a café
-- Register
-- Login
+- Home page/Register/Login
+- Purpose/Mission statement
+- Begin Quiz
+- Quiz Page
+- Success page
+- Wrong Answer page
+- Score page
+- Reference
 
 ### Mockups
 
 #### Home Page
-![](home.png)
-
-#### Register Page
-![](register.png)
-
-#### Login Page
-![](login.png)
-
-#### Enter Location Page
-![](enter-location.png)
-
-#### View Cafés Page
-![](view-cafes.png)
-
-#### View Café Page
-![](view-cafe.png)
-
-#### View Café Page (Rated state)
-![](view-cafe-rated.png)
+![](welcome.png)
 
 
-### Data
+#### Mission Page
+![](mission.png)
 
-![](sql-diagram.png)
+#### Begin Quiz Page
+![](begin.png)
+
+#### Quiz Page
+![](quiz.png)
+
+#### Success Page
+![](success.png)
+
+#### Wrong Answer Page
+![](wrong-answer.png)
+
+#### Score Page
+![](score.png)
+
+
+
 
 ### Endpoints
 
-**GET /cafes**
+**GET /poses**
 
 - Get cafés, with an optional "visited" if the user is logged in or not
 
@@ -105,73 +105,16 @@ Response:
 [
     {
         "id": 1,
-        "name": "Quantum Coffee",
-        "distance": 0.25,
-        "averageRating": 4.5,
-        "visited": true
+        "english_name": "Child Pose",
+        "sanskrit_name": "Bālāsana",
+        "photo": "childpose.png",
+        "description": "The child's pose helps to stretch your back and muscles around your hips."
+        "tips": "In this pose, kneel and sit on your knees. Lean forward, keeping your buttocks on your heels, and rest your forehead on the floor. Move your arms so they're next to your legs, palms facing up"
     },
     ...
 ]
 ```
 
-**GET /cafes/:id**
-
-- Get café by id, with an optional "userRating" if the user is logged in or not
-
-Parameters:
-- id: Café id as number
-- token (optional):  JWT used to add user rating
-
-Response:
-```
-{
-    "id": 1,
-    "name": "Quantum Coffee",
-    "distance": 0.25,
-    "averageRating": 4.5,
-    "userRating": 5
-}
-```
-
-**POST /cafes/:id/rating**
-
-- Logged in user can add their rating of a café
-
-Parameters:
-- id: Café id
-- token: JWT of the logged in user
-- rating: Number Rating out of 5 in 0.5 increments
-
-Response:
-```
-{
-    "id": 1,
-    "name": "Quantum Coffee",
-    "distance": 0.25,
-    "averageRating": 4.5,
-    "userRating": 5
-}
-```
-
-**PUT /cafes/:id/rating**
-
-- Logged in user can update their rating of a café
-
-Parameters:
-- id: Café id
-- token: JWT of the logged in user
-- rating: Number Rating out of 5 in 0.5 increments
-
-Response:
-```
-{
-    "id": 1,
-    "name": "Quantum Coffee",
-    "distance": 0.25,
-    "averageRating": 4.5,
-    "userRating": 5
-}
-```
 
 **POST /users/register**
 
@@ -206,11 +149,6 @@ Response:
 
 ### Auth
 
-- JWT auth
-    - Before adding auth, all API requests will be using a fake user with id 1
-    - Added after core features have first been implemented
-    - Store JWT in localStorage, remove when a user logs out
-    - Add states for logged in showing different UI in places listed in mockups
 
 ## Roadmap
 
@@ -218,43 +156,32 @@ Response:
     - react project with routes and boilerplate pages
 
 - Create server
-    - express project with routing, with placeholder 200 responses
+    - express project with routing
+    - create json file with data
+    - find images of the poses and edit so they are all the same size
 
-- Create migrations
-
-- Gather 15 sample café geolocations in two different cities
-
-- Create seeds with sample café data
 
 - Deploy client and server projects so all commits will be reflected in production
 
-- Feature: List cafés from a given location
-    - Implement list cafés page including location form
-    - Store given location in sessionStorage
-    - Create GET /cafes endpoint
+- Feature: Login Form
+    - Create GET /users endpoint
 
-- Feature: View café
-    - Implement view café page
-    - Create GET /cafes/:id 
-
-- Feature: Rate café
-    - Add form input to view café page
-    - Create POST /ratings
-    - States for add & update ratings 
-
-- Feature: Home page
-
-- Feature: Create account
+- Feature: Register Form 
     - Implement register page + form
     - Create POST /users/register endpoint
 
-- Feature: Login
-    - Implement login page + form
-    - Create POST /users/login endpoint
+- Feature: Get Quiz data
+    - Create GET /poses endpoint 
 
-- Feature: Implement JWT tokens
-    - Server: Update expected requests / responses on protected endpoints
-    - Client: Store JWT in local storage, include JWT on axios calls
+- Feature: Sanskrit character/buttons
+    - Create reusable components with with character for users to click
+
+- Feature: Mission page
+
+- Feature: Success page
+
+- Feature: Score page
+
 
 - Bug fixes
 
@@ -262,15 +189,7 @@ Response:
 
 ## Nice-to-haves
 
-- Integrate Google Places / Maps
-    - View more details about a café
-    - Visual radius functionality
-- Forgot password functionality
-- Ability to add a café 
-- Elite status badging for users and cafés: Gamify user ratings
-- Expand rating system
-    - Coffee
-    - Ambiance
-    - Staff
-- Expanded user information: full name, favorite café
-- Unit and Integration Tests
+- Video/ Animations or people or characters doing the pose 
+- levels (1,2,3) of challenge
+- login authentication 
+- audio, pronunciations of the name 
