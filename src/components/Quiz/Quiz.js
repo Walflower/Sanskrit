@@ -18,10 +18,6 @@ function Quiz() {
 
   return (
     <>
-      <header>
-        <Logo />
-      </header>
-
       <div>
         <div>blank</div>
         <img></img>
