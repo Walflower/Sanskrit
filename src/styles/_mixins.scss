@@ -8,6 +8,11 @@
 }
 
 //secondary button
+@mixin secondary-cta {
+    width: 5rem;
+    height: 3rem;
+    background-color: $button-background-secondary;//change to a more blue/purple colour 
+  }
 
 //breakpoints
 @mixin tablet {

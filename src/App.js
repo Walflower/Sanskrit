@@ -1,21 +1,31 @@
 import "./App.scss";
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 import BeginQuiz from "./components/Begin/BeginQuiz";
 import Mission from "./components/Mission/Mission";
 import Quiz from "./components/Quiz/Quiz";
 import Score from "./components/Score/Score";
 import Welcome from "./components/Welcome/Welcome";
 import WrongAnswer from "./components/WrongAnswer/WrongAnswer";
+import Header from "./components/Header/Header";
+
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
-      <Welcome />
-      <Mission />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Welcome />} />
+        <Route path="/begin" element={<BeginQuiz />} />
+      {/* <Mission />
       <BeginQuiz />
       <Quiz />
       <WrongAnswer />
-      <Score />
+      <Score /> */}
+   
+    </Routes>
     </div>
+    </BrowserRouter>
   );
 }
 

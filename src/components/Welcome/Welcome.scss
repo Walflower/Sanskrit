@@ -1,0 +1,28 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.main {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+  &__button {
+    @include secondary-cta; //TODO change color
+  }
+}
+
+.button_register {
+  @include primary-cta;
+}

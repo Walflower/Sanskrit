@@ -1,4 +1,5 @@
 import "./Logo.scss";
+//TODO a logo design
 
 function Logo() {
   return (
