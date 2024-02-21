@@ -1,0 +1,23 @@
+@use "../styles/variables" as *;
+
+//primary yellow button
+@mixin primary-cta {
+  width: 5rem;
+  height: 3rem;
+  background-color: $button-background-primary;
+}
+
+//secondary button
+
+//breakpoints
+@mixin tablet {
+  @media screen and (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: #{$desktop}) {
+    @content;
+  }
+}
