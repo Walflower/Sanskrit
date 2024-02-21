@@ -1,0 +1,21 @@
+@use "../../styles/global" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.large {
+  display: flex;
+  // flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.begin {
+  text-align: center;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
+
+  &__button {
+    @include primary-cta;
+  }
+}

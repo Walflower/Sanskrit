@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 //TODO make header component
 function Welcome() {
   return (
-    <div>
-      <h1>Welcome</h1>
+    <div className="welcome">
+      <h1 className="welcome__title">Welcome</h1>
 
       <main className="main">
         <form className="form">

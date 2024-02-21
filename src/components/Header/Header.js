@@ -1,10 +1,13 @@
-import "./Header.scss"
+import "./Header.scss";
 import Logo from "../Logo/Logo";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   return (
     <header>
-      <Logo />
+      <NavLink to="/">
+        <Logo />
+      </NavLink>
     </header>
   );
 }
