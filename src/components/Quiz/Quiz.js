@@ -11,7 +11,7 @@ function Quiz() {
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
   const [showTryAgain, setShowTryAgain] = useState(false);
 
-  //fetching all poses from api
+  //fetching all poses from api, randomization of list is on backend
   const getPose = async () => {
     try {
       const poseData = await axios.get(`${BASE_URL}/poses`);
@@ -26,17 +26,12 @@ function Quiz() {
     getPose();
   }, []);
 
-  // const goForward = () => {
-  //   setCurrentPose((clickedPose) => {
-  //     return clickedPose + 1;
-  //   });
-  // };
-
   if (!yogaPose[0]) {
     return <p>loading...</p>;
   }
   //................................
 
+  //TODO will need to change handle to be able to intake submission from clicked characters
   const handleGuess = () => {
     if (
       guess.trim().toLowerCase() ===
@@ -57,6 +52,7 @@ function Quiz() {
     setShowCorrectAnswer(true);
   };
 
+  //When user clicks the next question button it will take them to the next question for the to guess again.
   const nextQuestion = () => {
     setCurrentPose(currentPose + 1);
     setShowCorrectAnswer(false);
@@ -69,9 +65,7 @@ function Quiz() {
       <div>
         <h1>You're Correct!</h1>
         <p>The correct answer is: {yogaPose[currentPose]?.sanskrit_name}</p>
-        {/* <Link to="/quiz"> */}
         <button onClick={nextQuestion}>Next Question</button>
-        {/* </Link> */}
       </div>
     );
   }
@@ -89,15 +83,6 @@ function Quiz() {
   return (
     <>
       <h1>Input Sanskrit name of pose</h1>
-
-      {/* <div>
-        <p>Pose: {yogaPose[currentPose]?.pose}</p>
-        <p>Sanskrit Name: {yogaPose[currentPose]?.sanskrit_name}</p>
-        <img src={yogaPose[currentPose]?.photo} alt="yoga pose" />
-        <p>Description: {yogaPose[currentPose]?.description}</p>
-
-        <button onClick={goForward}>Next Question</button>
-      </div> */}
 
       <div>
         <p>Pose: {yogaPose[currentPose]?.pose}</p>
