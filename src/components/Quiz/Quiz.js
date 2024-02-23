@@ -1,8 +1,62 @@
 import "./Quiz.scss";
 import axios from "axios";
-import React, { useState, useEffect, useLayoutEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
+const SANSKRIT_CHARACTERS = {
+  a: "a",
+  ā: "ā",
+  i: "i",
+  ī: "ī",
+  u: "u",
+  ū: "ū",
+  ŗ: "ŗ",
+  ṝ: "ṝ",
+  ḷ: "ḷ",
+  ḹ: "ḹ",
+  e: "e",
+  ai: "ai",
+  o: "o",
+  au: "au",
+  ṁ: "ṁ",
+  ṃ: "ṃ",
+  ḥ: "ḥ",
+
+  // k
+  // kh
+  // g
+  // gh
+  // ṅ
+  // c
+  // ch
+  // j
+  // jh
+  // ñ
+  // ṭ
+  // ṭh
+  // ḍ
+  // ḍh
+  // ṇ
+  // t
+  // th
+  // d
+  // dh
+  // n
+  // p
+  // ph
+  // b
+  // bh
+  // m
+  // y
+  // r
+  // l
+  // v
+  // ṥ
+  // ṣ
+  // s
+  // h
+};
+
+const { a } = SANSKRIT_CHARACTERS;
 function Quiz() {
   const BASE_URL = process.env.REACT_APP_API_BASE_PATH;
   const [yogaPose, setYogaPose] = useState([]);
@@ -60,6 +114,14 @@ function Quiz() {
     setGuess("");
   };
 
+  //................
+  const addToGuess = (e) => {
+    console.log(e.target.value);
+    //I want to add the (e.target.value) to the setGuess empty sting
+    setGuess(guess.concat(" ", e.target.value));
+    console.log(setGuess);
+  };
+
   if (showCorrectAnswer) {
     return (
       <div>
@@ -93,6 +155,18 @@ function Quiz() {
           onChange={(e) => setGuess(e.target.value)}
         />
         <p>Description: {yogaPose[currentPose]?.description}</p>
+
+        <div>
+          <button value="अ" onClick={addToGuess}>
+            a
+          </button>
+          <button value="आ">aa</button>
+          <button>u</button>
+          <button>ai</button>
+          <button>na</button>
+          <button>ga</button>
+          <button>au</button>
+        </div>
         <button onClick={handleGuess}>Submit Guess</button>
       </div>
     </>
