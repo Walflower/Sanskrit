@@ -68,6 +68,9 @@ function Quiz() {
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
   const [showTryAgain, setShowTryAgain] = useState(false);
   const [capitalizeNext, setCapitalizeNext] = useState(false);
+  const [correctAnswers, setCorrectAnswers] = useState(0); //state variable for correct answers
+  const [isOpenOne, setIsOpenOne] = useState(false);
+  const [isOpenTwo, setIsOpenTwo] = useState(false);
 
   //fetching all poses from api, randomization of list is on backend
   const getPose = async () => {
@@ -113,28 +116,17 @@ function Quiz() {
     setShowTryAgain(false);
     setGuess("");
     setCapitalizeNext(false); // Reset capitalization mode
+    setIsOpenOne(false);
+    setIsOpenTwo(false);
   };
 
   //................
   const addToGuess = (e) => {
-    console.log(e.target.value);
-    //I want to add the (e.target.value) to the setGuess empty sting
     setGuess(guess.concat("", e.target.value));
   };
 
-  // const addToGuess = (value) => {
-  //   setGuess(
-  //     (prevGuess) => prevGuess + (capitalizeNext ? value.toUpperCase() : value)
-  //   );
-  //   setCapitalizeNext(false); // Reset capitalization mode after adding character
-  // };
-
-  const toggleCapitalizeNext = () => {
-    setCapitalizeNext(true); // Activate capitalization mode
-  };
-
   const removeCharacter = () => {
-    setGuess(guess.slice(1));
+    setGuess(guess.slice(0, -1));
   };
 
   if (showCorrectAnswer) {
@@ -170,10 +162,41 @@ function Quiz() {
           onChange={(e) => setGuess(e.target.value)}
         />
         <button onClick={removeCharacter}>back</button>
+
+        <div onClick={() => setIsOpenOne(!isOpenOne)}>
+          {!isOpenOne && (
+            <span>
+              <button>Hint 1</button>
+            </span>
+          )}
+
+          {isOpenOne && (
+            <span>
+              <p>{yogaPose[currentPose]?.hint_1}</p>
+            </span>
+          )}
+        </div>
+
+        <div onClick={() => setIsOpenTwo(!isOpenTwo)}>
+          {!isOpenTwo && (
+            <span>
+              <button>Hint 2</button>
+            </span>
+          )}
+
+          {isOpenTwo && (
+            <span>
+              <p>{yogaPose[currentPose]?.hint_2}</p>
+            </span>
+          )}
+        </div>
+
+        {/* <p>{hint_1}</p> */}
+        {/* <button onClick={showHintTwo}>Hint 2</button> */}
         <p>Description: {yogaPose[currentPose]?.description}</p>
 
         <div>
-          <button onClick={toggleCapitalizeNext}>Caps lock</button>
+          {/* <button onClick={toggleCapitalizeNext}>Caps lock</button> */}
 
           <button value=" " onClick={addToGuess}>
             space
@@ -339,6 +362,15 @@ function Quiz() {
           </button>
           <button value="h" onClick={addToGuess}>
             h
+          </button>
+          <button value="I" onClick={addToGuess}>
+            I
+          </button>
+          <button value="II" onClick={addToGuess}>
+            II
+          </button>
+          <button value="III" onClick={addToGuess}>
+            III
           </button>
         </div>
         <button onClick={handleGuess}>Submit Guess</button>
