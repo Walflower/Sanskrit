@@ -21,39 +21,42 @@ const SANSKRIT_CHARACTERS = {
   ṃ: "ṃ",
   ḥ: "ḥ",
 
-  // k
-  // kh
-  // g
-  // gh
-  // ṅ
-  // c
-  // ch
-  // j
-  // jh
-  // ñ
-  // ṭ
-  // ṭh
-  // ḍ
-  // ḍh
-  // ṇ
-  // t
-  // th
-  // d
-  // dh
-  // n
-  // p
-  // ph
-  // b
-  // bh
-  // m
-  // y
-  // r
-  // l
-  // v
-  // ṥ
-  // ṣ
-  // s
-  // h
+  k: "k",
+  kh: "kh",
+  g: "g",
+  gh: "gh",
+  ṅ: "ṅ",
+  c: "c",
+  ch: "ch",
+  j: "j",
+  jh: "jh",
+  ñ: "ñ",
+  ṭ: "ṭ",
+  ṭh: "ṭh",
+
+  ḍ: "ḍ",
+  ḍh: "ḍh",
+  ṇ: "ṇ",
+  t: "t",
+  th: "th",
+  d: "d",
+  dh: "dh",
+  n: "n",
+  p: "p",
+  ph: "ph",
+
+  b: "b",
+  bh: "bh",
+  m: "m",
+  y: "y",
+  r: "r",
+  ṛ: "ṛ",
+  l: "l",
+  v: "v",
+  ś: "ś",
+  ṣ: "ṣ",
+  s: "s",
+  h: "h",
 };
 
 const { a } = SANSKRIT_CHARACTERS;
@@ -64,13 +67,13 @@ function Quiz() {
   const [guess, setGuess] = useState("");
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
   const [showTryAgain, setShowTryAgain] = useState(false);
+  const [capitalizeNext, setCapitalizeNext] = useState(false);
 
   //fetching all poses from api, randomization of list is on backend
   const getPose = async () => {
     try {
       const poseData = await axios.get(`${BASE_URL}/poses`);
       setYogaPose(poseData.data);
-      console.log(poseData.data);
     } catch (error) {
       console.error("Error fetching pose data:", error);
     }
@@ -87,10 +90,7 @@ function Quiz() {
 
   //TODO will need to change handle to be able to intake submission from clicked characters
   const handleGuess = () => {
-    if (
-      guess.trim().toLowerCase() ===
-      yogaPose[currentPose]?.sanskrit_name.toLowerCase()
-    ) {
+    if (guess.trim() == yogaPose[currentPose]?.sanskrit_name) {
       setShowCorrectAnswer(true);
     } else {
       setShowTryAgain(true);
@@ -112,14 +112,29 @@ function Quiz() {
     setShowCorrectAnswer(false);
     setShowTryAgain(false);
     setGuess("");
+    setCapitalizeNext(false); // Reset capitalization mode
   };
 
   //................
   const addToGuess = (e) => {
     console.log(e.target.value);
     //I want to add the (e.target.value) to the setGuess empty sting
-    setGuess(guess.concat(" ", e.target.value));
-    console.log(setGuess);
+    setGuess(guess.concat("", e.target.value));
+  };
+
+  // const addToGuess = (value) => {
+  //   setGuess(
+  //     (prevGuess) => prevGuess + (capitalizeNext ? value.toUpperCase() : value)
+  //   );
+  //   setCapitalizeNext(false); // Reset capitalization mode after adding character
+  // };
+
+  const toggleCapitalizeNext = () => {
+    setCapitalizeNext(true); // Activate capitalization mode
+  };
+
+  const removeCharacter = () => {
+    setGuess(guess.slice(1));
   };
 
   if (showCorrectAnswer) {
@@ -154,18 +169,177 @@ function Quiz() {
           value={guess}
           onChange={(e) => setGuess(e.target.value)}
         />
+        <button onClick={removeCharacter}>back</button>
         <p>Description: {yogaPose[currentPose]?.description}</p>
 
         <div>
-          <button value="अ" onClick={addToGuess}>
+          <button onClick={toggleCapitalizeNext}>Caps lock</button>
+
+          <button value=" " onClick={addToGuess}>
+            space
+          </button>
+          <button value="-" onClick={addToGuess}>
+            -
+          </button>
+          <button value="a" onClick={addToGuess}>
             a
           </button>
-          <button value="आ">aa</button>
-          <button>u</button>
-          <button>ai</button>
-          <button>na</button>
-          <button>ga</button>
-          <button>au</button>
+          <button value="ā" onClick={addToGuess}>
+            ā
+          </button>
+          <button value="i" onClick={addToGuess}>
+            i
+          </button>
+          <button value="ī" onClick={addToGuess}>
+            ī
+          </button>
+          <button value="u" onClick={addToGuess}>
+            u
+          </button>
+          <button value="ū" onClick={addToGuess}>
+            ū
+          </button>
+          <button value="ŗ" onClick={addToGuess}>
+            ŗ
+          </button>
+
+          <button value="ṝ" onClick={addToGuess}>
+            ṝ
+          </button>
+          <button value="ḷ" onClick={addToGuess}>
+            ḷ
+          </button>
+          <button value="ḹ" onClick={addToGuess}>
+            ḹ
+          </button>
+          <button value="e" onClick={addToGuess}>
+            e
+          </button>
+          <button value="ai" onClick={addToGuess}>
+            ai
+          </button>
+
+          <button value="o" onClick={addToGuess}>
+            o
+          </button>
+          <button value="au" onClick={addToGuess}>
+            au
+          </button>
+          <button value="ṁ" onClick={addToGuess}>
+            ṁ
+          </button>
+          <button value="ṃ" onClick={addToGuess}>
+            ṃ
+          </button>
+          <button value="ḥ" onClick={addToGuess}>
+            ḥ
+          </button>
+
+          <button value="k" onClick={addToGuess}>
+            k
+          </button>
+          <button value="kh" onClick={addToGuess}>
+            kh
+          </button>
+          <button value="g" onClick={addToGuess}>
+            g
+          </button>
+
+          <button value="ṛ" onClick={addToGuess}>
+            ṛ
+          </button>
+          <button value="gh" onClick={addToGuess}>
+            gh
+          </button>
+          <button value="ṅ" onClick={addToGuess}>
+            ṅ
+          </button>
+          <button value="c" onClick={addToGuess}>
+            c
+          </button>
+          <button value="ch" onClick={addToGuess}>
+            ch
+          </button>
+          <button value="j" onClick={addToGuess}>
+            j
+          </button>
+          <button value="jh" onClick={addToGuess}>
+            jh
+          </button>
+          <button value="ñ" onClick={addToGuess}>
+            ñ
+          </button>
+          <button value="ṭ" onClick={addToGuess}>
+            ṭ
+          </button>
+          <button value="ṭh" onClick={addToGuess}>
+            ṭh
+          </button>
+
+          <button value="ḍ" onClick={addToGuess}>
+            ḍ
+          </button>
+          <button value="ḍh" onClick={addToGuess}>
+            ḍh
+          </button>
+          <button value="ṇ" onClick={addToGuess}>
+            ṇ
+          </button>
+          <button value="t" onClick={addToGuess}>
+            t
+          </button>
+          <button value="th" onClick={addToGuess}>
+            th
+          </button>
+          <button value="d" onClick={addToGuess}>
+            d
+          </button>
+          <button value="dh" onClick={addToGuess}>
+            dh
+          </button>
+          <button value="n" onClick={addToGuess}>
+            n
+          </button>
+          <button value="p" onClick={addToGuess}>
+            p
+          </button>
+          <button value="ph" onClick={addToGuess}>
+            ph
+          </button>
+
+          <button value="b" onClick={addToGuess}>
+            b
+          </button>
+          <button value="bh" onClick={addToGuess}>
+            bh
+          </button>
+          <button value="m" onClick={addToGuess}>
+            m
+          </button>
+          <button value="y" onClick={addToGuess}>
+            y
+          </button>
+          <button value="r" onClick={addToGuess}>
+            r
+          </button>
+          <button value="l" onClick={addToGuess}>
+            l
+          </button>
+          <button value="v" onClick={addToGuess}>
+            v
+          </button>
+          <button value="ś" onClick={addToGuess}>
+            ś
+          </button>
+          <button value="ṣ" onClick={addToGuess}>
+            ṣ
+          </button>
+          <button value="s" onClick={addToGuess}>
+            s
+          </button>
+          <button value="h" onClick={addToGuess}>
+            h
+          </button>
         </div>
         <button onClick={handleGuess}>Submit Guess</button>
       </div>
