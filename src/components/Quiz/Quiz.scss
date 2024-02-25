@@ -59,3 +59,27 @@
     }
   }
 }
+
+.sanskrit {
+  display: flex;
+  //   flex-direction: column;
+
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.15rem;
+
+  &__characters {
+    @include sanskrit-characters;
+    width: 2rem;
+
+    &--long {
+      width: 3rem;
+    }
+  }
+
+  &__button {
+    @include primary-cta;
+    margin: 0.5rem 0;
+  }
+}

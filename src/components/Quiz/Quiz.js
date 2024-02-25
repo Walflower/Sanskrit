@@ -219,186 +219,423 @@ function Quiz() {
         />
         <div className="quizBody__divider" />
 
-        <div>
-          <button onClick={removeCharacter}>back</button>
+        <div className="sanskrit">
+          <button
+            className="sanskrit__characters sanskrit__characters--long"
+            onClick={removeCharacter}
+          >
+            back
+          </button>
           {/**TODO add a clear string function */}
-          <button onClick={removeCharacter}>clear</button>
-          <button value=" " onClick={addToGuess}>
+          <button
+            className="sanskrit__characters sanskrit__characters--long"
+            onClick={removeCharacter}
+          >
+            clear
+          </button>
+          <button
+            className="sanskrit__characters sanskrit__characters--long"
+            value=" "
+            onClick={addToGuess}
+          >
             space
           </button>
-          <button value="-" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="-"
+            onClick={addToGuess}
+          >
             -
           </button>
-          <button value="a" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="a"
+            onClick={addToGuess}
+          >
             a
           </button>
-          <button value="ā" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ā"
+            onClick={addToGuess}
+          >
             ā
           </button>
-          <button value="i" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="i"
+            onClick={addToGuess}
+          >
             i
           </button>
-          <button value="ī" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ī"
+            onClick={addToGuess}
+          >
             ī
           </button>
-          <button value="u" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="u"
+            onClick={addToGuess}
+          >
             u
           </button>
-          <button value="ū" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ū"
+            onClick={addToGuess}
+          >
             ū
           </button>
-          <button value="ŗ" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ŗ"
+            onClick={addToGuess}
+          >
             ŗ
           </button>
 
-          <button value="ṝ" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ṝ"
+            onClick={addToGuess}
+          >
             ṝ
           </button>
-          <button value="ḷ" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ḷ"
+            onClick={addToGuess}
+          >
             ḷ
           </button>
-          <button value="ḹ" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ḹ"
+            onClick={addToGuess}
+          >
             ḹ
           </button>
-          <button value="e" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="e"
+            onClick={addToGuess}
+          >
             e
           </button>
-          <button value="ai" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ai"
+            onClick={addToGuess}
+          >
             ai
           </button>
 
-          <button value="o" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="o"
+            onClick={addToGuess}
+          >
             o
           </button>
-          <button value="au" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="au"
+            onClick={addToGuess}
+          >
             au
           </button>
-          <button value="ṁ" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ṁ"
+            onClick={addToGuess}
+          >
             ṁ
           </button>
-          <button value="ṃ" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ṃ"
+            onClick={addToGuess}
+          >
             ṃ
           </button>
-          <button value="ḥ" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ḥ"
+            onClick={addToGuess}
+          >
             ḥ
           </button>
 
-          <button value="k" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="k"
+            onClick={addToGuess}
+          >
             k
           </button>
-          <button value="kh" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="kh"
+            onClick={addToGuess}
+          >
             kh
           </button>
-          <button value="g" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="g"
+            onClick={addToGuess}
+          >
             g
           </button>
 
-          <button value="ṛ" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ṛ"
+            onClick={addToGuess}
+          >
             ṛ
           </button>
-          <button value="gh" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="gh"
+            onClick={addToGuess}
+          >
             gh
           </button>
-          <button value="ṅ" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ṅ"
+            onClick={addToGuess}
+          >
             ṅ
           </button>
-          <button value="c" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="c"
+            onClick={addToGuess}
+          >
             c
           </button>
-          <button value="ch" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ch"
+            onClick={addToGuess}
+          >
             ch
           </button>
-          <button value="j" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="j"
+            onClick={addToGuess}
+          >
             j
           </button>
-          <button value="jh" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="jh"
+            onClick={addToGuess}
+          >
             jh
           </button>
-          <button value="ñ" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ñ"
+            onClick={addToGuess}
+          >
             ñ
           </button>
-          <button value="ṭ" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ṭ"
+            onClick={addToGuess}
+          >
             ṭ
           </button>
-          <button value="ṭh" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ṭh"
+            onClick={addToGuess}
+          >
             ṭh
           </button>
 
-          <button value="ḍ" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ḍ"
+            onClick={addToGuess}
+          >
             ḍ
           </button>
-          <button value="ḍh" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ḍh"
+            onClick={addToGuess}
+          >
             ḍh
           </button>
-          <button value="ṇ" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ṇ"
+            onClick={addToGuess}
+          >
             ṇ
           </button>
-          <button value="t" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="t"
+            onClick={addToGuess}
+          >
             t
           </button>
-          <button value="th" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="th"
+            onClick={addToGuess}
+          >
             th
           </button>
-          <button value="d" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="d"
+            onClick={addToGuess}
+          >
             d
           </button>
-          <button value="dh" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="dh"
+            onClick={addToGuess}
+          >
             dh
           </button>
-          <button value="n" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="n"
+            onClick={addToGuess}
+          >
             n
           </button>
-          <button value="p" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="p"
+            onClick={addToGuess}
+          >
             p
           </button>
-          <button value="ph" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ph"
+            onClick={addToGuess}
+          >
             ph
           </button>
 
-          <button value="b" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="b"
+            onClick={addToGuess}
+          >
             b
           </button>
-          <button value="bh" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="bh"
+            onClick={addToGuess}
+          >
             bh
           </button>
-          <button value="m" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="m"
+            onClick={addToGuess}
+          >
             m
           </button>
-          <button value="y" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="y"
+            onClick={addToGuess}
+          >
             y
           </button>
-          <button value="r" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="r"
+            onClick={addToGuess}
+          >
             r
           </button>
-          <button value="l" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="l"
+            onClick={addToGuess}
+          >
             l
           </button>
-          <button value="v" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="v"
+            onClick={addToGuess}
+          >
             v
           </button>
-          <button value="ś" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ś"
+            onClick={addToGuess}
+          >
             ś
           </button>
-          <button value="ṣ" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="ṣ"
+            onClick={addToGuess}
+          >
             ṣ
           </button>
-          <button value="s" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="s"
+            onClick={addToGuess}
+          >
             s
           </button>
-          <button value="h" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="h"
+            onClick={addToGuess}
+          >
             h
           </button>
-          <button value="I" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="I"
+            onClick={addToGuess}
+          >
             I
           </button>
-          <button value="II" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="II"
+            onClick={addToGuess}
+          >
             II
           </button>
-          <button value="III" onClick={addToGuess}>
+          <button
+            className="sanskrit__characters"
+            value="III"
+            onClick={addToGuess}
+          >
             III
           </button>
         </div>
-        <button onClick={handleGuess}>Submit Guess</button>
+
+        <button className="sanskrit__button" onClick={handleGuess}>
+          Submit Guess
+        </button>
       </section>
     </main>
   );
