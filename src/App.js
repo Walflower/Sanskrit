@@ -19,6 +19,8 @@ function App() {
           <Route path="/begin" element={<BeginQuiz />} />
           <Route path="/register" element={<Register />} />
           <Route path="/quiz" element={<Quiz />} />
+
+          <Route path="/score" element={<Score />} />
           {/* <Mission />
       <BeginQuiz />
       <Quiz />

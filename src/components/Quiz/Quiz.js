@@ -1,6 +1,8 @@
 import "./Quiz.scss";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+// import Score from "../Score/Score";
+import { useNavigate } from "react-router-dom";
 
 const SANSKRIT_CHARACTERS = {
   a: "a",
@@ -62,15 +64,17 @@ const SANSKRIT_CHARACTERS = {
 const { a } = SANSKRIT_CHARACTERS;
 function Quiz() {
   const BASE_URL = process.env.REACT_APP_API_BASE_PATH;
+  const navigate = useNavigate();
   const [yogaPose, setYogaPose] = useState([]);
   const [currentPose, setCurrentPose] = useState(0);
   const [guess, setGuess] = useState("");
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
   const [showTryAgain, setShowTryAgain] = useState(false);
-  const [capitalizeNext, setCapitalizeNext] = useState(false);
+  // const [capitalizeNext, setCapitalizeNext] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState(0); //state variable for correct answers
   const [isOpenOne, setIsOpenOne] = useState(false);
   const [isOpenTwo, setIsOpenTwo] = useState(false);
+  // const [displayScore, setDisplayScore] = useState(false);
 
   //fetching all poses from api, randomization of list is on backend
   const getPose = async () => {
@@ -95,6 +99,8 @@ function Quiz() {
   const handleGuess = () => {
     if (guess.trim() == yogaPose[currentPose]?.sanskrit_name) {
       setShowCorrectAnswer(true);
+      setCorrectAnswers((prevCount) => prevCount + 1); // Increment correctAnswers count
+      console.log(correctAnswers);
     } else {
       setShowTryAgain(true);
     }
@@ -111,13 +117,17 @@ function Quiz() {
 
   //When user clicks the next question button it will take them to the next question for the to guess again.
   const nextQuestion = () => {
-    setCurrentPose(currentPose + 1);
-    setShowCorrectAnswer(false);
-    setShowTryAgain(false);
-    setGuess("");
-    setCapitalizeNext(false); // Reset capitalization mode
-    setIsOpenOne(false);
-    setIsOpenTwo(false);
+    if (currentPose === yogaPose.length - 1) {
+      navigate("/score", { state: { correctAnswers: correctAnswers } });
+    } else {
+      setCurrentPose(currentPose + 1);
+      setShowCorrectAnswer(false);
+      setShowTryAgain(false);
+      setGuess("");
+      // setCapitalizeNext(false); // Reset capitalization mode
+      setIsOpenOne(false);
+      setIsOpenTwo(false);
+    }
   };
 
   //................
@@ -162,7 +172,8 @@ function Quiz() {
           onChange={(e) => setGuess(e.target.value)}
         />
         <button onClick={removeCharacter}>back</button>
-
+        {/**TODO add a clear string function */}
+        <button onClick={removeCharacter}>clear</button>
         <div onClick={() => setIsOpenOne(!isOpenOne)}>
           {!isOpenOne && (
             <span>
@@ -176,7 +187,6 @@ function Quiz() {
             </span>
           )}
         </div>
-
         <div onClick={() => setIsOpenTwo(!isOpenTwo)}>
           {!isOpenTwo && (
             <span>
@@ -191,13 +201,8 @@ function Quiz() {
           )}
         </div>
 
-        {/* <p>{hint_1}</p> */}
-        {/* <button onClick={showHintTwo}>Hint 2</button> */}
         <p>Description: {yogaPose[currentPose]?.description}</p>
-
         <div>
-          {/* <button onClick={toggleCapitalizeNext}>Caps lock</button> */}
-
           <button value=" " onClick={addToGuess}>
             space
           </button>
@@ -375,6 +380,17 @@ function Quiz() {
         </div>
         <button onClick={handleGuess}>Submit Guess</button>
       </div>
+      {/* </span>
+      )} */}
+
+      {/* {displayScore && (
+        <span>
+          <h1> YOUR SCORE</h1>
+          <div>
+            <p>Correct Answers: {correctAnswers} of 10 </p>
+          </div>
+        </span>
+      )} */}
     </>
   );
 }
