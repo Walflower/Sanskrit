@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 //maybe with and orientation button
 
 //TODO great a component where the user routes to when the register button is clicked
-//TODO make header component
+
 function Welcome() {
   return (
     <div className="welcome">
@@ -13,21 +13,29 @@ function Welcome() {
 
       <main className="main">
         <form className="form">
-          <h2>Login</h2>
+          {/* <h2 className="form__title">Login</h2> */}
 
           <div className="form__container">
-            <label>Email:</label>
-            <input></input>
+            <label className="form__label">Email:</label>
+            <input
+              className="form__input"
+              placeholder="email address"
+              type="text"
+            ></input>
           </div>
 
           <div className="form__container">
-            <label>Password:</label>
-            <input></input>
+            <label className="form__label">Password:</label>
+            <input
+              className="form__input"
+              placeholder="password"
+              type="text"
+            ></input>
           </div>
 
           <Link to="/begin">
             <button className="form__button" type="submit">
-              LOGIN
+              SIGN IN
             </button>
           </Link>
         </form>

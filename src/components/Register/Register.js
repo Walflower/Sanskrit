@@ -6,33 +6,36 @@ function Register() {
     <main className="register">
       <h1 className="register__title">Register</h1>
 
-      <form className="form">
-        <div className="form__container">
-          <label>First Name:</label>
-          <input></input>
+      <form className="register__form">
+        <div className="register__container">
+          <label className="register__label">First Name:</label>
+          <input className="register__input" placeholder="first name"></input>
         </div>
 
-        <div className="form__container">
-          <label>Last Name:</label>
-          <input></input>
+        <div className="register__container">
+          <label className="register__label">Last Name:</label>
+          <input className="register__input" placeholder="last name"></input>
         </div>
-        <div className="form__container">
-          <label>Email:</label>
-          <input></input>
-        </div>
-
-        <div className="form__container">
-          <label>Password:</label>
-          <input></input>
+        <div className="register__container">
+          <label className="register__label">Email:</label>
+          <input className="register__input" placeholder="email"></input>
         </div>
 
-        <div className="form__container">
-          <label>Re-Enter Password:</label>
-          <input></input>
+        <div className="register__container">
+          <label className="register__label">Password:</label>
+          <input className="register__input" placeholder="password"></input>
+        </div>
+
+        <div className="register__container">
+          <label className="register__label">Re-Enter Password:</label>
+          <input
+            className="register__input"
+            placeholder="re-enter password"
+          ></input>
         </div>
 
         <Link to="/begin">
-          <button className="form__button" type="submit">
+          <button className="register__button" type="submit">
             SIGN UP
           </button>
         </Link>

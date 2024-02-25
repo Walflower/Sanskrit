@@ -1,18 +1,75 @@
 @use "../styles/variables" as *;
 
-//primary yellow button
+//primary pink button
 @mixin primary-cta {
-  width: 5rem;
-  height: 3rem;
-  background-color: $button-background-primary;
+  color: $text-secondary;
+  background-color: $background-primary;
+  border-radius: 5px;
+  border: none;
+
+  &:hover {
+    color: $text-hover;
+    box-shadow: 0px 0.5px 1px 1px rgba(245, 198, 181, 0.63);
+  }
 }
 
-//secondary button
-@mixin secondary-cta {
-    width: 5rem;
-    height: 3rem;
-    background-color: $button-background-secondary;//change to a more blue/purple colour 
+//display flex, column, center
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+//display flex, row, center
+@mixin flex-row-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//input bar
+@mixin input-pink {
+  // -webkit-appearance: none;
+  background-color: $background-primary;
+  color: $text-secondary;
+  border-radius: 5px;
+  border: none;
+
+  &::placeholder {
+    font-style: italic;
   }
+  &:focus {
+    // // outline: none;
+    // border: 1 rem solid $text-hover;
+    box-shadow: none;
+    outline-color: $text-hover;
+
+    // padding: unset;
+    // out
+    // border-color: $text-hover;
+  }
+}
+
+//TODO add an italizced font
+//input secondary bar
+@mixin input-green {
+  background-color: $component-primary;
+  color: $text-primary;
+  border-radius: 5px;
+  border: none;
+
+  &::placeholder {
+    color: #ffe7df;
+    font-style: italic;
+    font-weight: lighter;
+  }
+  // &:focus {
+
+  //   box-shadow: none;
+  //   outline-color: $text-hover;
+
+  // }
+}
 
 //breakpoints
 @mixin tablet {
