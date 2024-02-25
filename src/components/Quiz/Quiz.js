@@ -144,6 +144,7 @@ function Quiz() {
       <div>
         <h1>You're Correct!</h1>
         <p>The correct answer is: {yogaPose[currentPose]?.sanskrit_name}</p>
+        <img src={yogaPose[currentPose]?.photo} alt="pose" />
         <button onClick={nextQuestion}>Next Question</button>
       </div>
     );
@@ -165,7 +166,7 @@ function Quiz() {
 
       <div>
         <p>Pose: {yogaPose[currentPose]?.pose}</p>
-        <img src={yogaPose[currentPose]?.photo} alt="yoga pose" />
+        <img src={yogaPose[currentPose]?.photo} alt="pose" />
         <input
           type="text"
           value={guess}
