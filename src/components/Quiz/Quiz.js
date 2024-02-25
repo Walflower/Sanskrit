@@ -141,12 +141,12 @@ function Quiz() {
 
   if (showCorrectAnswer) {
     return (
-      <div>
+      <main className="quiz">
         <h1>You're Correct!</h1>
         <p>The correct answer is: {yogaPose[currentPose]?.sanskrit_name}</p>
         <img src={yogaPose[currentPose]?.photo} alt="pose" />
         <button onClick={nextQuestion}>Next Question</button>
-      </div>
+      </main>
     );
   }
 
@@ -160,50 +160,69 @@ function Quiz() {
     );
   }
 
+  //..............................default..............................
   return (
-    <>
-      <h1>Input Sanskrit name of pose</h1>
+    <main className="quiz">
+      <h1 className="quiz__title">{yogaPose[currentPose]?.pose}</h1>
+      <img
+        className="quizBody__image"
+        src={yogaPose[currentPose]?.photo}
+        alt="pose"
+      />
 
-      <div>
-        <p>Pose: {yogaPose[currentPose]?.pose}</p>
-        <img src={yogaPose[currentPose]?.photo} alt="pose" />
+      <section className="quizBody">
+        <p className="quizBody__paragraph">Description:</p>
+        <p className="quizBody__paragraph">
+          {yogaPose[currentPose]?.description}
+        </p>
+
+        <div className="quizBody__container">
+          <div onClick={() => setIsOpenOne(!isOpenOne)}>
+            {!isOpenOne && (
+              <span>
+                <button className="quizBody__container-hint">Hint 1</button>
+              </span>
+            )}
+
+            {isOpenOne && (
+              <span>
+                <p className="quizBody__paragraph">
+                  {yogaPose[currentPose]?.hint_1}
+                </p>
+              </span>
+            )}
+          </div>
+          <div onClick={() => setIsOpenTwo(!isOpenTwo)}>
+            {!isOpenTwo && (
+              <span>
+                <button className="quizBody__container-hint">Hint 2</button>
+              </span>
+            )}
+
+            {isOpenTwo && (
+              <span>
+                <p className="quizBody__paragraph">
+                  {yogaPose[currentPose]?.hint_2}
+                </p>
+              </span>
+            )}
+          </div>
+        </div>
+
+        <label className="quizBody__paragraph">Sanskrit Translation</label>
         <input
+          className="quizBody__input"
           type="text"
           value={guess}
           onChange={(e) => setGuess(e.target.value)}
+          placeholder="write your guess"
         />
-        <button onClick={removeCharacter}>back</button>
-        {/**TODO add a clear string function */}
-        <button onClick={removeCharacter}>clear</button>
-        <div onClick={() => setIsOpenOne(!isOpenOne)}>
-          {!isOpenOne && (
-            <span>
-              <button>Hint 1</button>
-            </span>
-          )}
+        <div className="quizBody__divider" />
 
-          {isOpenOne && (
-            <span>
-              <p>{yogaPose[currentPose]?.hint_1}</p>
-            </span>
-          )}
-        </div>
-        <div onClick={() => setIsOpenTwo(!isOpenTwo)}>
-          {!isOpenTwo && (
-            <span>
-              <button>Hint 2</button>
-            </span>
-          )}
-
-          {isOpenTwo && (
-            <span>
-              <p>{yogaPose[currentPose]?.hint_2}</p>
-            </span>
-          )}
-        </div>
-
-        <p>Description: {yogaPose[currentPose]?.description}</p>
         <div>
+          <button onClick={removeCharacter}>back</button>
+          {/**TODO add a clear string function */}
+          <button onClick={removeCharacter}>clear</button>
           <button value=" " onClick={addToGuess}>
             space
           </button>
@@ -380,19 +399,8 @@ function Quiz() {
           </button>
         </div>
         <button onClick={handleGuess}>Submit Guess</button>
-      </div>
-      {/* </span>
-      )} */}
-
-      {/* {displayScore && (
-        <span>
-          <h1> YOUR SCORE</h1>
-          <div>
-            <p>Correct Answers: {correctAnswers} of 10 </p>
-          </div>
-        </span>
-      )} */}
-    </>
+      </section>
+    </main>
   );
 }
 export default Quiz;
