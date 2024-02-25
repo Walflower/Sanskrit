@@ -2,20 +2,15 @@
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
 
-.large {
-  display: flex;
-  // flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 .begin {
-  text-align: center;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // justify-content: center;
+  @include flex-column-center;
 
+  &__title {
+    font-size: $sub-title-mobile;
+    color: $text-secondary;
+  }
   &__button {
-    @include primary-cta;
+    @include secondary-cta-green;
+    padding: 0.5rem;
   }
 }

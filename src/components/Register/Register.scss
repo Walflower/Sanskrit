@@ -29,12 +29,6 @@
   }
 
   &__button {
-    @include primary-cta;
-    color: $text-primary;
-    background-color: $component-primary;
-
-    &:hover {
-      box-shadow: 0px 0.5px 1px 1px rgba(37, 56, 34, 0.63);
-    }
+    @include secondary-cta-green;
   }
 }
