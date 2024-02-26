@@ -62,8 +62,6 @@
 
 .sanskrit {
   display: flex;
-  //   flex-direction: column;
-
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
@@ -81,5 +79,26 @@
   &__button {
     @include primary-cta;
     margin: 0.5rem 0;
+  }
+}
+
+.wrongAnswer {
+  @include flex-column-center;
+  justify-content: center;
+
+  &__title {
+    font-size: $sub-title-mobile;
+    color: $text-secondary;
+    text-align: center;
+  }
+
+  &__container {
+    @include flex-row-center;
+    justify-content: space-between;
+    width: 10rem;
+  }
+
+  &__button {
+    @include secondary-cta-green;
   }
 }

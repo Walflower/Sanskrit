@@ -142,9 +142,13 @@ function Quiz() {
   if (showCorrectAnswer) {
     return (
       <main className="quiz">
-        <h1>You're Correct!</h1>
-        <p>The correct answer is: {yogaPose[currentPose]?.sanskrit_name}</p>
-        <img src={yogaPose[currentPose]?.photo} alt="pose" />
+        <h1 className="quiz__title">You're Correct!</h1>
+        <p className="quiz__title">{yogaPose[currentPose]?.sanskrit_name}</p>
+        <img
+          className="quizBody__image"
+          src={yogaPose[currentPose]?.photo}
+          alt="pose"
+        />
         <button onClick={nextQuestion}>Next Question</button>
       </main>
     );
@@ -152,11 +156,18 @@ function Quiz() {
 
   if (showTryAgain) {
     return (
-      <div>
-        <h1>Better Luck Next Time!</h1>
-        <button onClick={handleTryAgain}>Try Again</button>
-        <button onClick={handleSeeAnswer}>See Answer</button>
-      </div>
+      <main className="wrongAnswer">
+        <h1 className="wrongAnswer__title">Better Luck Next Time!</h1>
+
+        <div className="wrongAnswer__container">
+          <button className="wrongAnswer__button" onClick={handleTryAgain}>
+            Try Again
+          </button>
+          <button className="wrongAnswer__button" onClick={handleSeeAnswer}>
+            See Answer
+          </button>
+        </div>
+      </main>
     );
   }
 
