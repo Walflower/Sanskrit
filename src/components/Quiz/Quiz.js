@@ -95,7 +95,6 @@ function Quiz() {
   }
   //................................
 
-  //TODO will need to change handle to be able to intake submission from clicked characters
   const handleGuess = () => {
     if (guess.trim() == yogaPose[currentPose]?.sanskrit_name) {
       setShowCorrectAnswer(true);
