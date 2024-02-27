@@ -1,11 +1,6 @@
 import "./Welcome.scss";
 import { Link } from "react-router-dom";
 
-//would be nice to fluid switch from portrait to landscape mod.
-//maybe with and orientation button
-
-//TODO great a component where the user routes to when the register button is clicked
-
 function Welcome() {
   return (
     <div className="welcome">
@@ -13,8 +8,6 @@ function Welcome() {
 
       <main className="main">
         <form className="form">
-          {/* <h2 className="form__title">Login</h2> */}
-
           <div className="form__container">
             <label className="form__label">Email:</label>
             <input

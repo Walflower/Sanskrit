@@ -60,7 +60,6 @@ const SANSKRIT_CHARACTERS = {
   h: "h",
 };
 
-const { a } = SANSKRIT_CHARACTERS;
 function Quiz() {
   const BASE_URL = process.env.REACT_APP_API_BASE_PATH;
   const navigate = useNavigate();
