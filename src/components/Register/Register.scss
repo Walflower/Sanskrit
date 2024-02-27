@@ -1,0 +1,34 @@
+@use "../../styles/global" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.register {
+  &__title {
+    text-align: center;
+    color: $text-secondary;
+    font-size: $sub-title-mobile;
+  }
+
+  &__form {
+    @include flex-column-center;
+  }
+
+  &__container {
+    @include flex-column-center;
+    align-items: flex-start;
+    margin-bottom: 0.25rem;
+  }
+
+  &__label {
+    color: $text-secondary;
+    font-size: $p-mobile;
+  }
+
+  &__input {
+    @include input-green;
+  }
+
+  &__button {
+    @include secondary-cta-green;
+  }
+}

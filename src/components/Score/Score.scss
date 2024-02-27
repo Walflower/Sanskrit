@@ -1,0 +1,24 @@
+@use "../../styles/global" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.score {
+  @include flex-column-center;
+
+  &__title {
+    font-size: $sub-title-mobile;
+    color: $text-secondary;
+  }
+
+  &__container {
+    @include flex-column-center;
+  }
+  &__subtitle {
+    font-size: $sub-title-mobile;
+    color: $text-secondary;
+  }
+
+  &__button {
+    @include secondary-cta-green;
+  }
+}

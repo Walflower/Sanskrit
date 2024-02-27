@@ -1,0 +1,105 @@
+@use "../../styles/global" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.quiz {
+  width: 90%;
+  border-radius: 30px;
+  background-color: $component-primary;
+  @include flex-column-center;
+
+  &__title {
+    font-size: $sub-title-mobile;
+    color: $text-primary;
+    text-align: center;
+    margin: 0;
+  }
+}
+
+.quizBody {
+  @include flex-column-center;
+  padding: 0.5rem 1rem;
+
+  &__image {
+    width: 6rem;
+    border-radius: 5px;
+  }
+
+  &__paragraph {
+    font-size: $p-mobile;
+    color: $text-primary;
+    margin: 0.5rem auto;
+    text-align: center;
+  }
+
+  //TODO play around with positioning
+  &__container {
+    width: 100%;
+    @include flex-row-center;
+    justify-content: space-between;
+  }
+
+  &__container-hint {
+    @include primary-cta;
+  }
+
+  &__input {
+    @include input-pink;
+    margin-bottom: 1rem;
+  }
+
+  &__divider {
+    width: 100%;
+    height: 1px;
+    background-color: $background-primary;
+    margin-bottom: 0.5rem;
+    display: none;
+
+    @include tablet {
+      display: unset;
+    }
+  }
+}
+
+.sanskrit {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.15rem;
+
+  &__characters {
+    @include sanskrit-characters;
+    width: 2rem;
+
+    &--long {
+      width: 3rem;
+    }
+  }
+
+  &__button {
+    @include primary-cta;
+    margin: 0.5rem 0;
+  }
+}
+
+.wrongAnswer {
+  @include flex-column-center;
+  justify-content: center;
+
+  &__title {
+    font-size: $sub-title-mobile;
+    color: $text-secondary;
+    text-align: center;
+  }
+
+  &__container {
+    @include flex-row-center;
+    justify-content: space-between;
+    width: 10rem;
+  }
+
+  &__button {
+    @include secondary-cta-green;
+  }
+}

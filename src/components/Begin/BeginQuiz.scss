@@ -1,0 +1,16 @@
+@use "../../styles/global" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.begin {
+  @include flex-column-center;
+
+  &__title {
+    font-size: $sub-title-mobile;
+    color: $text-secondary;
+  }
+  &__button {
+    @include secondary-cta-green;
+    padding: 0.5rem;
+  }
+}
