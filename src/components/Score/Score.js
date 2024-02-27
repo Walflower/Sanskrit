@@ -1,6 +1,6 @@
 import "./Score.scss";
 import Logo from "../Logo/Logo";
-import { useState } from "react";
+
 import { useLocation } from "react-router-dom";
 
 function Score() {

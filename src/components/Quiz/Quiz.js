@@ -1,7 +1,6 @@
 import "./Quiz.scss";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-// import Score from "../Score/Score";
 import { useNavigate } from "react-router-dom";
 
 const SANSKRIT_CHARACTERS = {
@@ -69,12 +68,11 @@ function Quiz() {
   const [currentPose, setCurrentPose] = useState(0);
   const [guess, setGuess] = useState("");
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
+  const [seeAnswer, setSeeAnswer] = useState(false);
   const [showTryAgain, setShowTryAgain] = useState(false);
-  // const [capitalizeNext, setCapitalizeNext] = useState(false);
-  const [correctAnswers, setCorrectAnswers] = useState(0); //state variable for correct answers
+  const [correctAnswers, setCorrectAnswers] = useState(0);
   const [isOpenOne, setIsOpenOne] = useState(false);
   const [isOpenTwo, setIsOpenTwo] = useState(false);
-  // const [displayScore, setDisplayScore] = useState(false);
 
   //fetching all poses from api, randomization of list is on backend
   const getPose = async () => {
@@ -98,7 +96,7 @@ function Quiz() {
   const handleGuess = () => {
     if (guess.trim() == yogaPose[currentPose]?.sanskrit_name) {
       setShowCorrectAnswer(true);
-      setCorrectAnswers((prevCount) => prevCount + 1); // Increment correctAnswers count
+      setCorrectAnswers((prevCount) => prevCount + 1);
       console.log(correctAnswers);
     } else {
       setShowTryAgain(true);
@@ -111,7 +109,7 @@ function Quiz() {
   };
 
   const handleSeeAnswer = () => {
-    setShowCorrectAnswer(true);
+    setSeeAnswer(true);
   };
 
   //When user clicks the next question button it will take them to the next question for the to guess again.
@@ -122,14 +120,15 @@ function Quiz() {
       setCurrentPose(currentPose + 1);
       setShowCorrectAnswer(false);
       setShowTryAgain(false);
+      setSeeAnswer(false);
       setGuess("");
-      // setCapitalizeNext(false); // Reset capitalization mode
+
       setIsOpenOne(false);
       setIsOpenTwo(false);
     }
   };
 
-  //................
+  //.............................
   const addToGuess = (e) => {
     setGuess(guess.concat("", e.target.value));
   };
@@ -138,21 +137,64 @@ function Quiz() {
     setGuess(guess.slice(0, -1));
   };
 
-  if (showCorrectAnswer) {
+  //if the user clicks the "setSeeAnswer" button it will navigate them here
+  if (seeAnswer) {
     return (
       <main className="quiz">
-        <h1 className="quiz__title">You're Correct!</h1>
         <p className="quiz__title">{yogaPose[currentPose]?.sanskrit_name}</p>
+        <p className="quizBody__paragraph">{yogaPose[currentPose]?.pose}</p>
         <img
           className="quizBody__image"
           src={yogaPose[currentPose]?.photo}
           alt="pose"
         />
-        <button onClick={nextQuestion}>Next Question</button>
+
+        <section className="quizBody">
+          <p className="quizBody__paragraph">Description:</p>
+          <p className="quizBody__paragraph">
+            {yogaPose[currentPose]?.description}
+          </p>
+          <p className="quizBody__paragraph">Tips:</p>
+          <p className="quizBody__paragraph">{yogaPose[currentPose]?.tips}</p>
+        </section>
+
+        <button className="sanskrit__button" onClick={nextQuestion}>
+          Next Question
+        </button>
       </main>
     );
   }
 
+  //if the user gets the answer correct it will navigate them here
+  if (showCorrectAnswer) {
+    return (
+      <main className="quiz">
+        <h1 className="quiz__title">You're Correct!</h1>
+        <p className="quiz__title">{yogaPose[currentPose]?.sanskrit_name}</p>
+        <p className="quizBody__paragraph">{yogaPose[currentPose]?.pose}</p>
+        <img
+          className="quizBody__image"
+          src={yogaPose[currentPose]?.photo}
+          alt="pose"
+        />
+
+        <section className="quizBody">
+          <p className="quizBody__paragraph">Description:</p>
+          <p className="quizBody__paragraph">
+            {yogaPose[currentPose]?.description}
+          </p>
+          <p className="quizBody__paragraph">Tips:</p>
+          <p className="quizBody__paragraph">{yogaPose[currentPose]?.tips}</p>
+        </section>
+
+        <button className="sanskrit__button" onClick={nextQuestion}>
+          Next Question
+        </button>
+      </main>
+    );
+  }
+
+  //if the user guesses wrong it will navigate them here
   if (showTryAgain) {
     return (
       <main className="wrongAnswer">
