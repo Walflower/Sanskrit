@@ -1,5 +1,10 @@
-.header {
-  text-align: left;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/global" as *;
 
-  background-color: white;
+.header {
+  @include tablet {
+    @include flex-row-center;
+    justify-content: flex-start;
+  }
 }

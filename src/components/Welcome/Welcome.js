@@ -1,7 +1,33 @@
 import "./Welcome.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function Welcome() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    try {
+      console.log("Email:", email);
+      console.log("Password:", password);
+      navigate("/begin");
+    } catch (error) {
+      alert("Invalid email or password");
+      console.error("Invalid email or password", error);
+    }
+  };
+
   return (
     <div className="welcome">
       <h1 className="welcome__title">Welcome</h1>
@@ -14,6 +40,7 @@ function Welcome() {
               className="form__input"
               placeholder="email address"
               type="text"
+              onChange={handleEmailChange}
             ></input>
           </div>
 
@@ -22,15 +49,14 @@ function Welcome() {
             <input
               className="form__input"
               placeholder="password"
-              type="text"
+              type="password"
+              onChange={handlePasswordChange}
             ></input>
           </div>
 
-          <Link to="/begin">
-            <button className="form__button" type="submit">
-              SIGN IN
-            </button>
-          </Link>
+          <button className="form__button" type="submit">
+            SIGN IN
+          </button>
         </form>
 
         <Link to="/register">
