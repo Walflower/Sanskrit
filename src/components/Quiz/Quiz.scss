@@ -9,17 +9,22 @@
   @include flex-column-center;
 
   @include tablet {
-    margin: 0 auto;
+    margin: 0 auto 1rem auto;
   }
 
   @include desktop {
     max-width: 1000px;
   }
+
   &__title {
     font-size: $sub-title-mobile;
     color: $text-primary;
     text-align: center;
     margin: 0;
+
+    @include desktop {
+      font-size: $sub-title-tablet;
+    }
   }
 }
 
@@ -30,6 +35,10 @@
   &__image {
     width: 6rem;
     border-radius: 5px;
+
+    @include desktop {
+      width: 8rem;
+    }
   }
 
   &__paragraph {
@@ -47,11 +56,19 @@
 
   &__container-hint {
     @include primary-cta;
+
+    @include desktop {
+      font-size: 1rem;
+    }
   }
 
   &__input {
     @include input-pink;
     margin-bottom: 1rem;
+
+    @include desktop {
+      width: 15rem;
+    }
   }
 
   &__divider {
@@ -86,6 +103,10 @@
   &__button {
     @include primary-cta;
     margin: 0.5rem 0;
+
+    @include desktop {
+      font-size: 1rem;
+    }
   }
 }
 
@@ -101,6 +122,10 @@
     font-size: $sub-title-mobile;
     color: $text-secondary;
     text-align: center;
+
+    @include desktop {
+      font-size: $sub-title-tablet;
+    }
   }
 
   &__container {

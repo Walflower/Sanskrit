@@ -136,6 +136,10 @@ function Quiz() {
     setGuess(guess.slice(0, -1));
   };
 
+  const clearCharacters = () => {
+    setGuess(guess.slice(0, -1));
+  };
+
   //if the user clicks the "setSeeAnswer" button it will navigate them here
   if (seeAnswer) {
     return (
@@ -280,7 +284,7 @@ function Quiz() {
           {/**TODO add a clear string function */}
           <button
             className="sanskrit__characters sanskrit__characters--long"
-            onClick={removeCharacter}
+            onClick={clearCharacters}
           >
             clear
           </button>

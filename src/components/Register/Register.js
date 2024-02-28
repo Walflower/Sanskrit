@@ -54,49 +54,51 @@ function Register() {
       <h1 className="register__title">Register</h1>
 
       <form className="register__form">
-        <div className="register__container">
-          <label className="register__label">First Name:</label>
-          <input
-            className="register__input"
-            placeholder="first name"
-            type="text"
-          ></input>
-        </div>
+        <section className="register__box">
+          <div className="register__container">
+            <label className="register__label">First Name:</label>
+            <input
+              className="register__input"
+              placeholder="first name"
+              type="text"
+            ></input>
+          </div>
 
-        <div className="register__container">
-          <label className="register__label">Last Name:</label>
-          <input
-            className="register__input"
-            placeholder="last name"
-            type="text"
-          ></input>
-        </div>
-        <div className="register__container">
-          <label className="register__label">Email:</label>
-          <input
-            className="register__input"
-            placeholder="email"
-            type="email"
-          ></input>
-        </div>
+          <div className="register__container">
+            <label className="register__label">Last Name:</label>
+            <input
+              className="register__input"
+              placeholder="last name"
+              type="text"
+            ></input>
+          </div>
+          <div className="register__container">
+            <label className="register__label">Email:</label>
+            <input
+              className="register__input"
+              placeholder="email"
+              type="email"
+            ></input>
+          </div>
 
-        <div className="register__container">
-          <label className="register__label">Password:</label>
-          <input
-            className="register__input"
-            placeholder="password"
-            type="password"
-          ></input>
-        </div>
+          <div className="register__container">
+            <label className="register__label">Password:</label>
+            <input
+              className="register__input"
+              placeholder="password"
+              type="password"
+            ></input>
+          </div>
 
-        <div className="register__container">
-          <label className="register__label">Re-Enter Password:</label>
-          <input
-            className="register__input"
-            placeholder="re-enter password"
-            type="password"
-          ></input>
-        </div>
+          <div className="register__container">
+            <label className="register__label">Re-Enter Password:</label>
+            <input
+              className="register__input"
+              placeholder="re-enter password"
+              type="password"
+            ></input>
+          </div>
+        </section>
 
         <button className="register__button" type="submit">
           SIGN UP

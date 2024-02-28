@@ -3,8 +3,10 @@
 @use "../../styles/variables" as *;
 
 .register {
-  @include desktop {
+  @include tablet {
     @include flex-column-center;
+  }
+  @include desktop {
     animation: bounceAnimation 2s ease-in-out;
   }
 
@@ -13,7 +15,7 @@
     font-size: $sub-title-mobile;
 
     @include desktop {
-      font-size: 5rem;
+      font-size: $h1-tablet;
       margin-top: 0;
       margin-bottom: 1rem;
     }
@@ -21,10 +23,6 @@
 
   &__form {
     @include flex-column-center;
-
-    @include desktop {
-      align-items: flex-start;
-    }
   }
 
   &__container {
@@ -38,7 +36,7 @@
     font-size: $p-mobile;
 
     @include desktop {
-      font-size: $sub-title-mobile;
+      font-size: $p-tablet;
     }
   }
 
@@ -47,10 +45,12 @@
 
     @include desktop {
       height: 1.5rem;
+      width: 20rem;
     }
   }
 
   &__button {
+    margin-top: 0.5rem;
     @include secondary-cta-green;
 
     @include desktop {

@@ -12,9 +12,17 @@
   &__title {
     font-size: $sub-title-mobile;
     color: $text-secondary;
+
+    @include desktop {
+      font-size: $h1-tablet;
+    }
   }
   &__button {
     @include secondary-cta-green;
     padding: 0.5rem;
+
+    @include desktop {
+      font-size: $font-button-desktop;
+    }
   }
 }
