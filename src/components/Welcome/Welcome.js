@@ -1,6 +1,7 @@
 import "./Welcome.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import LeavesAnimation from "../LeavesAnimation/LeavesAnimation";
 
 function Welcome() {
   const [email, setEmail] = useState("");
@@ -67,6 +68,8 @@ function Welcome() {
           <button className="button_register">REGISTER</button>
         </Link>
       </main>
+
+      <LeavesAnimation />
     </div>
   );
 }
