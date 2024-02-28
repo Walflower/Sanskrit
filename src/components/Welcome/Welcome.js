@@ -54,7 +54,11 @@ function Welcome() {
             ></input>
           </div>
 
-          <button className="form__button" type="submit">
+          <button
+            className="form__button"
+            type="submit"
+            onSubmit={handleSubmit}
+          >
             SIGN IN
           </button>
         </form>

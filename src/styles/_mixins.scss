@@ -55,7 +55,6 @@
 
 //input bar
 @mixin input-pink {
-  // -webkit-appearance: none;
   background-color: $background-primary;
   color: $text-secondary;
   border-radius: 5px;
@@ -65,18 +64,11 @@
     font-style: italic;
   }
   &:focus {
-    // // outline: none;
-    // border: 1 rem solid $text-hover;
     box-shadow: none;
     outline-color: $text-hover;
-
-    // padding: unset;
-    // out
-    // border-color: $text-hover;
   }
 }
 
-//TODO add an italizced font
 //input secondary bar
 @mixin input-green {
   background-color: $component-primary;
@@ -89,12 +81,6 @@
     font-style: italic;
     font-weight: lighter;
   }
-  // &:focus {
-
-  //   box-shadow: none;
-  //   outline-color: $text-hover;
-
-  // }
 }
 
 //breakpoints
