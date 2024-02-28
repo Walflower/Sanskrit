@@ -34,13 +34,13 @@ function Welcome() {
       <h1 className="welcome__title">Welcome</h1>
 
       <main className="main">
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
           <div className="form__container">
             <label className="form__label">Email:</label>
             <input
               className="form__input"
               placeholder="email address"
-              type="text"
+              type="email"
               onChange={handleEmailChange}
             ></input>
           </div>
@@ -55,11 +55,7 @@ function Welcome() {
             ></input>
           </div>
 
-          <button
-            className="form__button"
-            type="submit"
-            onSubmit={handleSubmit}
-          >
+          <button className="form__button" type="submit">
             SIGN IN
           </button>
         </form>

@@ -5,6 +5,10 @@
 .begin {
   @include flex-column-center;
 
+  @include desktop {
+    animation: bounceAnimation 2s ease-in-out;
+  }
+
   &__title {
     font-size: $sub-title-mobile;
     color: $text-secondary;
