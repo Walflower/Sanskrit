@@ -1,6 +1,7 @@
 @use "./variables" as *;
+@use "./typography" as *;
 
-//TODO add the header with the logo to global
-// body {
-//   background-color: $background-primary;
-// }
+* {
+  // box-sizing: border-box;
+  font-family: "Shantell Sans", sans-serif;
+}

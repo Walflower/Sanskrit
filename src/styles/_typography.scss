@@ -1,0 +1,62 @@
+//Bold
+@font-face {
+  font-family: "Shantell Sans";
+  src: url("../assets/fonts/ShantellSans-Bold.woff2") format("woff2"),
+    url("../assets/fonts/ShantellSans-Bold.woff") format("woff"),
+    url("../assets/fonts/ShantellSans-Bold.ttf") format("ttf");
+  font-weight: 700;
+}
+
+//Bold-Italic
+@font-face {
+  font-family: "Shantell Sans";
+  src: url("../assets/fonts/ShantellSans-BoldItalic.woff2") format("woff2"),
+    url("../assets/fonts/ShantellSans-BoldItalic.woff") format("woff")
+      url("../assets/fonts/ShantellSans-BoldItalic.ttf") format("ttf");
+  font-weight: 700;
+}
+
+//Medium
+@font-face {
+  font-family: "Shantell Sans";
+  src: url("../assets/fonts/ShantellSans-Medium.woff2") format("woff2"),
+    url("../assets/fonts/ShantellSans-Medium.woff") format("woff")
+      url("../assets/fonts/ShantellSans-Medium.ttf") format("ttf");
+  font-weight: 500;
+}
+
+//Italic
+@font-face {
+  font-family: "Shantell Sans";
+  src: url("../assets/fonts/ShantellSans-Italic.woff2") format("woff2"),
+    url("../assets/fonts/ShantellSans-Italic.woff") format("woff")
+      url("../assets/fonts/ShantellSans-Italic.ttf") format("ttf");
+  font-weight: 500;
+}
+
+//Regular
+@font-face {
+  font-family: "Shantell Sans";
+  src: url("../assets/fonts/ShantellSans-Regular.woff2") format("woff2"),
+    url("../assets/fonts/ShantellSans-Regular.woff") format("woff")
+      url("../assets/fonts/ShantellSans-Regular.ttf") format("ttf");
+  font-weight: 400;
+}
+
+//Light-Italic
+@font-face {
+  font-family: "Shantell Sans";
+  src: url("../assets/fonts/ShantellSans-LightItalic.woff2") format("woff2"),
+    url("../assets/fonts/ShantellSans-LightItalic.woff") format("woff")
+      url("../assets/fonts/ShantellSans-LightItalic.ttf") format("ttf");
+  font-weight: 300;
+}
+
+//Light
+@font-face {
+  font-family: "Shantell Sans";
+  src: url("../assets/fonts/ShantellSans-Light.woff2") format("woff2"),
+    url("../assets/fonts/ShantellSans-Light.woff") format("woff")
+      url("../assets/fonts/ShantellSans-Light.ttf") format("ttf");
+  font-weight: 300;
+}
