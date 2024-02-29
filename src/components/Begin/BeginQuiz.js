@@ -8,6 +8,8 @@ function BeginQuiz() {
       <Link to="/quiz">
         <button className="begin__button">START</button>
       </Link>
+
+      <p>Sanskrit info............. ....................................</p>
     </main>
   );
 }

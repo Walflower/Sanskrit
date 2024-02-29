@@ -1,6 +1,7 @@
 import "./Header.scss";
 import Logo from "../Logo/Logo";
 import { NavLink } from "react-router-dom";
+import Sound from "../Sound/sound";
 
 function Header() {
   return (
@@ -8,6 +9,8 @@ function Header() {
       <NavLink to="/">
         <Logo />
       </NavLink>
+
+      <Sound />
     </header>
   );
 }
