@@ -3,5 +3,12 @@
 @use "../../styles/global" as *;
 
 .sound {
-  width: 3rem;
+  width: 1rem;
+
+  @include tablet {
+    width: 2rem;
+  }
+  @include desktop {
+    width: 4rem;
+  }
 }

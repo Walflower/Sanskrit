@@ -2,10 +2,12 @@ import "./Welcome.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import LeavesAnimation from "../LeavesAnimation/LeavesAnimation";
+// import UserPicture from "../../assets/images/default-profile-no-background.png";
 
 function Welcome() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // const [userProfilePicture, setUserProfilePicture] = useState(null); // State to store user's profile picture
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
@@ -20,8 +22,11 @@ function Welcome() {
     e.preventDefault();
 
     try {
+      // setUserProfilePicture(UserPicture);
+      //remove
       console.log("Email:", email);
       console.log("Password:", password);
+      //
       navigate("/begin");
     } catch (error) {
       alert("Invalid email or password");
@@ -66,6 +71,15 @@ function Welcome() {
       </main>
 
       <LeavesAnimation />
+
+      {/* Conditionally render the user's profile picture in the header */}
+      {/* {userProfilePicture && (
+        <img
+          className="user-profile-picture"
+          src={userProfilePicture}
+          alt="User Profile"
+        />
+      )} */}
     </div>
   );
 }
