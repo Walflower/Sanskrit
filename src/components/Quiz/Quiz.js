@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../User/User";
+import Sound from "../Sound/Sound";
 
 const SANSKRIT_CHARACTERS = {
   a: "a",
@@ -145,6 +146,7 @@ function Quiz() {
   if (seeAnswer) {
     return (
       <>
+        <Sound />
         <User />
         <main className="quiz">
           <p className="quiz__title">{yogaPose[currentPose]?.sanskrit_name}</p>
@@ -176,6 +178,7 @@ function Quiz() {
   if (showCorrectAnswer) {
     return (
       <>
+        <Sound />
         <User />
         <main className="quiz">
           <h1 className="quiz__title">You're Correct!</h1>
@@ -208,6 +211,7 @@ function Quiz() {
   if (showTryAgain) {
     return (
       <>
+        <Sound />
         <User />
         <main className="wrongAnswer">
           <h1 className="wrongAnswer__title">Better Luck Next Time!</h1>
@@ -228,6 +232,7 @@ function Quiz() {
   //..............................default..............................
   return (
     <>
+      <Sound />
       <User />
       <main className="quiz">
         <h1 className="quiz__title">{yogaPose[currentPose]?.pose}</h1>

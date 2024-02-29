@@ -9,6 +9,9 @@
     width: 2rem;
   }
   @include desktop {
+    position: fixed;
+    right: 6rem;
+    top: 2rem;
     width: 4rem;
   }
 }

@@ -1,6 +1,7 @@
 import "./Score.scss";
 import { useNavigate, useLocation } from "react-router-dom";
 import User from "../User/User";
+import Sound from "../Sound/Sound";
 
 function Score() {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ function Score() {
 
   return (
     <>
+      <Sound />
       <User />
       <main className="score">
         <h1 className="score__title"> YOUR SCORE</h1>
