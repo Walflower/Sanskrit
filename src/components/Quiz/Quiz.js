@@ -298,7 +298,7 @@ function Quiz() {
             >
               back
             </button>
-            {/**TODO add a clear string function */}
+
             <button
               className="sanskrit__characters sanskrit__characters--long"
               onClick={clearCharacters}
