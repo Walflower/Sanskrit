@@ -1,6 +1,9 @@
+import "./Sound.scss";
 import { useSound } from "use-sound";
 import VinyasaSound from "../../assets/audio/vinyasa-music.mp3";
 import { useState } from "react";
+import NoSound from "../../assets/images/no-sound.png";
+import SoundOn from "../../assets/images/sound-on.png";
 
 function Sound() {
   const [play, { stop }] = useSound(VinyasaSound);
@@ -16,26 +19,17 @@ function Sound() {
     setIsPlaying(!isPlaying);
   };
 
-  // Path to the image for play and pause states
-  const playImage = "/path/to/play-image.png";
-  const pauseImage = "/path/to/pause-image.png";
-
   // Dynamically determine which image to display based on the isPlaying state
-  const imageSrc = isPlaying ? pauseImage : playImage;
+  const imageSrc = isPlaying ? SoundOn : NoSound;
 
   return (
-    <>
-      <button onClick={toggleSound}>
-        {isPlaying ? "Pause Sound" : "Play Sound"}
-      </button>
-
-      {/* <img
-src={imageSrc}
-alt={isPlaying ? "Pause Sound" : "Play Sound"}
-onClick={toggleSound}
-style={{ cursor: "pointer" }} // Style to show pointer cursor on hover
-/> */}
-    </>
+    <img
+      className="sound"
+      src={imageSrc}
+      alt={isPlaying ? "Play Sound" : "Pause Sound"}
+      onClick={toggleSound}
+      style={{ cursor: "pointer" }}
+    />
   );
 }
 

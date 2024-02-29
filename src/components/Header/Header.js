@@ -1,7 +1,7 @@
 import "./Header.scss";
 import Logo from "../Logo/Logo";
 import { NavLink } from "react-router-dom";
-import Sound from "../Sound/sound";
+import Sound from "../Sound/Sound.js";
 
 function Header() {
   return (

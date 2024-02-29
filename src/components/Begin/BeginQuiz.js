@@ -21,7 +21,9 @@ function BeginQuiz() {
       <main className="begin">
         <h1 className="begin__title">Begin</h1>
         <Link to="/quiz">
-          <button className="begin__button">START</button>
+          <button className="begin__button" style={{ cursor: "pointer" }}>
+            START
+          </button>
         </Link>
       </main>
 
