@@ -26,3 +26,22 @@
     }
   }
 }
+
+.scrolling {
+  white-space: nowrap;
+  animation: scroll 60s linear infinite;
+
+  &__image {
+    width: 10rem;
+    padding: 2rem;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
