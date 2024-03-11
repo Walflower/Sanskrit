@@ -8,11 +8,23 @@
   background-color: $component-primary;
   @include flex-column-center;
 
+  @include tablet {
+    margin: 0 auto 1rem auto;
+  }
+
+  @include desktop {
+    max-width: 1000px;
+  }
+
   &__title {
     font-size: $sub-title-mobile;
     color: $text-primary;
     text-align: center;
     margin: 0;
+
+    @include desktop {
+      font-size: $sub-title-tablet;
+    }
   }
 }
 
@@ -23,6 +35,10 @@
   &__image {
     width: 6rem;
     border-radius: 5px;
+
+    @include desktop {
+      width: 8rem;
+    }
   }
 
   &__paragraph {
@@ -32,7 +48,6 @@
     text-align: center;
   }
 
-  //TODO play around with positioning
   &__container {
     width: 100%;
     @include flex-row-center;
@@ -41,11 +56,19 @@
 
   &__container-hint {
     @include primary-cta;
+
+    @include desktop {
+      font-size: 1rem;
+    }
   }
 
   &__input {
     @include input-pink;
     margin-bottom: 1rem;
+
+    @include desktop {
+      width: 15rem;
+    }
   }
 
   &__divider {
@@ -80,6 +103,10 @@
   &__button {
     @include primary-cta;
     margin: 0.5rem 0;
+
+    @include desktop {
+      font-size: 1rem;
+    }
   }
 }
 
@@ -87,19 +114,39 @@
   @include flex-column-center;
   justify-content: center;
 
+  @include desktop {
+    animation: bounceAnimation 2s ease-in-out;
+  }
+
   &__title {
     font-size: $sub-title-mobile;
     color: $text-secondary;
     text-align: center;
+
+    @include desktop {
+      font-size: $sub-title-tablet;
+    }
   }
 
   &__container {
     @include flex-row-center;
-    justify-content: space-between;
-    width: 10rem;
+    justify-content: space-evenly;
+    width: 100%;
+
+    @include tablet {
+      width: 20rem;
+    }
+
+    @include desktop {
+      width: 30rem;
+    }
   }
 
   &__button {
     @include secondary-cta-green;
+
+    @include desktop {
+      font-size: 1.5rem;
+    }
   }
 }

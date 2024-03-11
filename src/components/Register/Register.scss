@@ -3,10 +3,22 @@
 @use "../../styles/variables" as *;
 
 .register {
+  @include tablet {
+    @include flex-column-center;
+  }
+  @include desktop {
+    animation: bounceAnimation 2s ease-in-out;
+  }
+
   &__title {
-    text-align: center;
     color: $text-secondary;
     font-size: $sub-title-mobile;
+
+    @include desktop {
+      font-size: $h1-tablet;
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
   }
 
   &__form {
@@ -22,13 +34,39 @@
   &__label {
     color: $text-secondary;
     font-size: $p-mobile;
+
+    @include desktop {
+      font-size: $p-tablet;
+    }
   }
 
   &__input {
     @include input-green;
+
+    @include desktop {
+      height: 1.5rem;
+      width: 20rem;
+    }
   }
 
   &__button {
+    margin-top: 0.5rem;
     @include secondary-cta-green;
+
+    @include desktop {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@keyframes bounceAnimation {
+  0% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }

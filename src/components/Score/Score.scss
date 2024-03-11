@@ -8,11 +8,16 @@
   &__title {
     font-size: $sub-title-mobile;
     color: $text-secondary;
+
+    @include desktop {
+      font-size: $sub-title-tablet;
+    }
   }
 
   &__container {
     @include flex-column-center;
   }
+
   &__subtitle {
     font-size: $sub-title-mobile;
     color: $text-secondary;
@@ -20,5 +25,9 @@
 
   &__button {
     @include secondary-cta-green;
+
+    @include desktop {
+      font-size: $font-button-desktop;
+    }
   }
 }

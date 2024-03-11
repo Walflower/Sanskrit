@@ -5,12 +5,43 @@
 .begin {
   @include flex-column-center;
 
+  @include desktop {
+    animation: bounceAnimation 2s ease-in-out;
+  }
+
   &__title {
     font-size: $sub-title-mobile;
     color: $text-secondary;
+
+    @include desktop {
+      font-size: $h1-tablet;
+    }
   }
   &__button {
     @include secondary-cta-green;
     padding: 0.5rem;
+
+    @include desktop {
+      font-size: $font-button-desktop;
+    }
+  }
+}
+
+.scrolling {
+  white-space: nowrap;
+  animation: scroll 60s linear infinite;
+
+  &__image {
+    width: 10rem;
+    padding: 2rem;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }
