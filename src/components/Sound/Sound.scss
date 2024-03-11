@@ -3,7 +3,10 @@
 @use "../../styles/global" as *;
 
 .sound {
-  width: 1rem;
+  width: 2rem;
+  position: fixed;
+  left: 1.5rem;
+  top: 1rem;
 
   @include tablet {
     width: 2rem;

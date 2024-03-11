@@ -21,10 +21,9 @@ function Welcome() {
     e.preventDefault();
 
     try {
-      //
       console.log("Email:", email);
       console.log("Password:", password);
-      //
+
       navigate("/begin");
     } catch (error) {
       alert("Invalid email or password");

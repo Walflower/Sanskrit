@@ -1,6 +1,17 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/global" as *;
+
 .userProfile {
-  width: 4rem;
+  width: 2rem;
   position: fixed;
   right: 2rem;
-  top: 2rem;
+  top: 1rem;
+
+  @include tablet {
+    width: 4rem;
+    position: fixed;
+    right: 2rem;
+    top: 2rem;
+  }
 }
