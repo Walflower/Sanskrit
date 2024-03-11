@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../User/User";
-import Sound from "../Sound/Sound.js";
+import Sound from "../Sound/Sound";
 
 const SANSKRIT_CHARACTERS = {
   a: "a",
