@@ -15,12 +15,12 @@ import Eleven from "../../assets/images/eleven.png";
 import Middle from "../../assets/images/middle.png";
 import Last from "../../assets/images/last.png";
 import User from "../User/User.js";
-import Sound from "../Sound/Sound.js";
+// import Sound from "../Sound/Sound.js";
 
 function BeginQuiz() {
   return (
     <>
-      <Sound />
+      {/* <Sound /> */}
       <User />
       <main className="begin">
         <h1 className="begin__title">Begin</h1>
