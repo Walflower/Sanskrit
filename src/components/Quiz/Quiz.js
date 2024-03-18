@@ -64,10 +64,11 @@ const SANSKRIT_CHARACTERS = {
 
 function Quiz() {
   const BASE_URL = process.env.REACT_APP_API_BASE_PATH;
-  const ACCESS_TOKEN = process.env.VERCEL_ACCESS_TOKEN;
+
   const navigate = useNavigate();
   const [yogaPose, setYogaPose] = useState([]);
   const [currentPose, setCurrentPose] = useState(0);
+
   const [guess, setGuess] = useState("");
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
   const [seeAnswer, setSeeAnswer] = useState(false);
@@ -80,6 +81,7 @@ function Quiz() {
   const getPose = async () => {
     try {
       const poseData = await axios.get(`${BASE_URL}/poses`);
+
       setYogaPose(poseData.data);
     } catch (error) {
       console.error("Error fetching pose data:", error);
@@ -143,6 +145,9 @@ function Quiz() {
     setGuess(guess.slice(0, -1));
   };
 
+  const photoUrl = yogaPose[currentPose]?.photo;
+  console.log(photoUrl);
+
   //if the user clicks the "setSeeAnswer" button it will navigate them here
   if (seeAnswer) {
     return (
@@ -154,7 +159,7 @@ function Quiz() {
           <p className="quizBody__paragraph">{yogaPose[currentPose]?.pose}</p>
           <img
             className="quizBody__image"
-            src={yogaPose[currentPose]?.photo}
+            src={`${BASE_URL}/${photoUrl}`}
             alt="pose"
           />
 
@@ -187,7 +192,7 @@ function Quiz() {
           <p className="quizBody__paragraph">{yogaPose[currentPose]?.pose}</p>
           <img
             className="quizBody__image"
-            src={yogaPose[currentPose]?.photo}
+            src={`${BASE_URL}/${photoUrl}`}
             alt="pose"
           />
 
@@ -239,7 +244,7 @@ function Quiz() {
         <h1 className="quiz__title">{yogaPose[currentPose]?.pose}</h1>
         <img
           className="quizBody__image"
-          src={yogaPose[currentPose]?.photo}
+          src={`${BASE_URL}/${photoUrl}`}
           alt="pose"
         />
 
