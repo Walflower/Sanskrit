@@ -64,6 +64,7 @@ const SANSKRIT_CHARACTERS = {
 
 function Quiz() {
   const BASE_URL = process.env.REACT_APP_API_BASE_PATH;
+  const ACCESS_TOKEN = process.env.VERCEL_ACCESS_TOKEN;
   const navigate = useNavigate();
   const [yogaPose, setYogaPose] = useState([]);
   const [currentPose, setCurrentPose] = useState(0);
