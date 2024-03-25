@@ -1,8 +1,8 @@
 import "./Quiz.scss";
-import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../User/User";
+import PosesData from "../../data/poses.json";
 // import Sound from "../Sound/Sound.js";
 
 const SANSKRIT_CHARACTERS = {
@@ -66,7 +66,7 @@ function Quiz() {
   const BASE_URL = process.env.REACT_APP_API_BASE_PATH;
 
   const navigate = useNavigate();
-  const [yogaPose, setYogaPose] = useState([]);
+  const [yogaPose, setYogaPose] = useState(PosesData);
   const [currentPose, setCurrentPose] = useState(0);
 
   const [guess, setGuess] = useState("");
@@ -76,21 +76,6 @@ function Quiz() {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [isOpenOne, setIsOpenOne] = useState(false);
   const [isOpenTwo, setIsOpenTwo] = useState(false);
-
-  //fetching all poses from api, randomization of list is on backend
-  const getPose = async () => {
-    try {
-      const poseData = await axios.get(`${BASE_URL}/poses`);
-
-      setYogaPose(poseData.data);
-    } catch (error) {
-      console.error("Error fetching pose data:", error);
-    }
-  };
-
-  useEffect(() => {
-    getPose();
-  }, []);
 
   if (!yogaPose[0]) {
     return <p>loading...</p>;
@@ -160,7 +145,7 @@ function Quiz() {
           <p className="quizBody__paragraph">{yogaPose[currentPose]?.pose}</p>
           <img
             className="quizBody__image"
-            src={`${BASE_URL}/${photoUrl}`}
+            src={yogaPose[currentPose]?.photo}
             alt="pose"
           />
 
@@ -193,7 +178,7 @@ function Quiz() {
           <p className="quizBody__paragraph">{yogaPose[currentPose]?.pose}</p>
           <img
             className="quizBody__image"
-            src={`${BASE_URL}/${photoUrl}`}
+            src={yogaPose[currentPose]?.photo}
             alt="pose"
           />
 
@@ -245,7 +230,7 @@ function Quiz() {
         <h1 className="quiz__title">{yogaPose[currentPose]?.pose}</h1>
         <img
           className="quizBody__image"
-          src={`${BASE_URL}/${photoUrl}`}
+          src={yogaPose[currentPose]?.photo}
           alt="pose"
         />
 
