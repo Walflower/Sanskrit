@@ -1,0 +1,3 @@
+[submodule "sanskrit-backend"]
+	path = sanskrit-backend
+	url = git@github.com:Walflower/sanksrit-backend.git

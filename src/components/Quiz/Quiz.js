@@ -145,6 +145,7 @@ function Quiz() {
     setGuess(guess.slice(0, -1));
   };
 
+  //grabs the name of the photo to then get it from the static file.
   const photoUrl = yogaPose[currentPose]?.photo;
   console.log(photoUrl);
 
