@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../User/User";
 import PosesData from "../../data/poses.json";
-// import Sound from "../Sound/Sound.js";
+import Sound from "../Sound/Sound.js";
 
 const SANSKRIT_CHARACTERS = {
   a: "a",
@@ -138,7 +138,7 @@ function Quiz() {
   if (seeAnswer) {
     return (
       <>
-        {/* <Sound /> */}
+        <Sound />
         <User />
         <main className="quiz">
           <p className="quiz__title">{yogaPose[currentPose]?.sanskrit_name}</p>
@@ -170,7 +170,7 @@ function Quiz() {
   if (showCorrectAnswer) {
     return (
       <>
-        {/* <Sound /> */}
+        <Sound />
         <User />
         <main className="quiz">
           <h1 className="quiz__title">You're Correct!</h1>
@@ -203,7 +203,7 @@ function Quiz() {
   if (showTryAgain) {
     return (
       <>
-        {/* <Sound /> */}
+        <Sound />
         <User />
         <main className="wrongAnswer">
           <h1 className="wrongAnswer__title">Better Luck Next Time!</h1>
@@ -224,7 +224,7 @@ function Quiz() {
   //..............................default..............................
   return (
     <>
-      {/* <Sound /> */}
+      <Sound />
       <User />
       <main className="quiz">
         <h1 className="quiz__title">{yogaPose[currentPose]?.pose}</h1>
